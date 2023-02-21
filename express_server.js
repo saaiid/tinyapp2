@@ -17,12 +17,20 @@ const urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
+app.get("/urls.json", (req, res) => {
+  res.json(urlDatabase);
+});
+
 app.use(morgan('dev'))
 
 //GET /home
 app.get('/', (req, res) => {
   res.send('hello')
-})
+});
+
+app.get("/hello", (req, res) => {
+  res.send("<html><body>Hello <b>World</b></body></html>\n");
+});
 
 //GET /about
 /* app.get('/about', (req, res) => {
