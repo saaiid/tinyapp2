@@ -9,6 +9,8 @@ app.set("view engine", "ejs");
 
 app.use(morgan('dev'))
 
+app.use(express.urlencoded({ extended: true }));
+
 //middleware
 /* app.use( (req, res, next) => {
   console.log(req.method, req.url);
@@ -21,8 +23,19 @@ const urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
+function generateRandomString() {}
+
 app.get("/urls.json", (req, res) => {
   res.json(urlDatabase);
+});
+
+app.get("/urls/new", (req, res) => {
+  res.render("urls_new");
+});
+
+app.post("/urls", (req, res) => {
+  console.log(req.body); // Log the POST request body to the console
+  res.send("Ok"); // Respond with 'Ok' (we will replace this)
 });
 
 app.get("/urls/:id", (req, res) => {
