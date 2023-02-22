@@ -5,6 +5,10 @@ const morgan = require('morgan');
 const app = express();
 const port = 8080;
 
+app.set("view engine", "ejs");
+
+app.use(morgan('dev'))
+
 //middleware
 /* app.use( (req, res, next) => {
   console.log(req.method, req.url);
@@ -20,8 +24,6 @@ const urlDatabase = {
 app.get("/urls.json", (req, res) => {
   res.json(urlDatabase);
 });
-
-app.use(morgan('dev'))
 
 //GET /home
 app.get('/', (req, res) => {
