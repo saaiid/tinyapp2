@@ -65,6 +65,11 @@ app.get("/hello", (req, res) => {
   res.send('all about us!')
 }) */
 
+app.get("/urls/:id", (req, res) => {
+  res.render('edit-form')
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 });
+
